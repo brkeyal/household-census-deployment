@@ -18,7 +18,7 @@ services:
   # Backend API Service
   backend:
     build:
-      context: ./household-census-backend
+      context: ../household-census-backend
       dockerfile: Dockerfile
     container_name: household-census-backend
     restart: unless-stopped
@@ -26,7 +26,7 @@ services:
       - "5001:5000"
     volumes:
       # Change this - use anonymous volume to preserve node_modules
-      - ./household-census-backend:/app:cached
+      - ../household-census-backend:/app:cached
       - /app/node_modules
       - uploads:/app/uploads
     depends_on:
@@ -42,7 +42,7 @@ services:
   # Frontend Service
   frontend:
     build:
-      context: ./household-census-frontend
+      context: ../household-census-frontend
       dockerfile: Dockerfile
     container_name: household-census-frontend
     restart: unless-stopped

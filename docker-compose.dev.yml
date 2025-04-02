@@ -4,11 +4,11 @@ services:
   # Override the frontend service for development
   frontend:
     build:
-      context: ./household-census-frontend
+      context: ../household-census-frontend
       dockerfile: Dockerfile.dev
     container_name: household-census-frontend-dev
     volumes:
-      - ./household-census-frontend:/app
+      - ../household-census-frontend:/app
       - /app/node_modules
     environment:
       - NODE_ENV=development

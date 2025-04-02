@@ -46,7 +46,7 @@ services:
       context: ../household-census-frontend
       dockerfile: Dockerfile
       args:
-      - REACT_APP_API_URL=http://13.51.166.196/api
+        - REACT_APP_API_URL=http://13.51.166.196/api
     container_name: household-census-frontend
     restart: unless-stopped
     ports:

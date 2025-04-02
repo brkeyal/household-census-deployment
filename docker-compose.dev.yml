@@ -1,0 +1,26 @@
+version: '3'
+
+services:
+  # Override the frontend service for development
+  frontend:
+    build:
+      context: ./household-census-frontend
+      dockerfile: Dockerfile.dev
+    container_name: household-census-frontend-dev
+    volumes:
+      - ./household-census-frontend:/app
+      - /app/node_modules
+    environment:
+      - NODE_ENV=development
+      - REACT_APP_API_URL=http://localhost:5001/api
+    ports:
+      - "3000:3000"
+    networks:
+      - default
+      - app-network
+
+networks:
+  default:
+  app-network:
+    external: true
+    name: household-census-workspace_app-network
